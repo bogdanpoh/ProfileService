@@ -8,5 +8,5 @@
 import Foundation
 
 struct ProfileId: Decodable {
-    let id: String
+    var id: String
 }

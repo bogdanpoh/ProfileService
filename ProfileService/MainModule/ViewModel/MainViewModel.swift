@@ -7,6 +7,18 @@
 
 import Foundation
 
-class MainViewModel {
+protocol MainViewModelInput {
+    
+}
+
+protocol MainViewModelOutput {
+    
+}
+
+typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
+
+final class MainViewModel: MainViewModelProtocol {
+    
+    
     
 }

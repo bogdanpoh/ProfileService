@@ -8,11 +8,11 @@
 import Foundation
 
 struct User: Decodable {
-    let id: String
-    let accountType: String
-    let mediaCount: Int
-    let username: String
-    let media: MediaDataResponse
+    var id: String
+    var accountType: String
+    var mediaCount: Int
+    var username: String
+    var media: MediaDataResponse
     
     enum CodingKeys: String, CodingKey {
         case id, username, media

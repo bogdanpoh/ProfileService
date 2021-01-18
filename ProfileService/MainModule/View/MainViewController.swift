@@ -7,11 +7,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-
+final class MainViewController: UIViewController {
+    
     // MARK: - UI
     
-    var mainView = MainView()
+    private let mainView = MainView()
     
     // MARK: - Lifecycle
     
@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
         setupViews()
         configureConstraints()
     }
+    
 }
 
 // MARK: - Setup
@@ -47,11 +48,11 @@ private extension MainViewController {
 
 private extension MainViewController {
     
-    func setNickName(text: String) {
-        mainView.nickNameLabel.text = text
+    func set(nickName: String) {
+        mainView.nickNameLabel.text = nickName
     }
     
-    func setAvatar(image: UIImage) {
-        mainView.avatarImage.image = image
+    func set(avatar: UIImage) {
+        mainView.avatarImage.image = avatar
     }
 }
