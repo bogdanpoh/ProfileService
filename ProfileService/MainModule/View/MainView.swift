@@ -51,8 +51,8 @@ private extension MainView {
         NSLayoutConstraint.activate([
             avatarImage.topAnchor.constraint(equalTo: topAnchor),
             avatarImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            avatarImage.widthAnchor.constraint(equalToConstant: 100),
-            avatarImage.heightAnchor.constraint(equalToConstant: 100)
+            avatarImage.widthAnchor.constraint(equalToConstant: 50),
+            avatarImage.heightAnchor.constraint(equalToConstant: 50)
         ])
         
         nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
