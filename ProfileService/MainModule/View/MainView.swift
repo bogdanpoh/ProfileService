@@ -9,6 +9,14 @@ import UIKit
 
 final class MainView: UIView {
     
+    // MARK: - Public
+    
+    var userModel: UserModel = .initial {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     // MARK: - UI
     
     let avatarImage: UIImageView = {
@@ -21,7 +29,6 @@ final class MainView: UIView {
     let nickNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Username"
         return label
     }()
     
@@ -35,6 +42,28 @@ final class MainView: UIView {
     @available (*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Override methods
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        switch userModel {
+        
+        case .initial:
+            updateView(user: nil, isHidden: true)
+            
+        case .loading:
+            updateView(user: nil, isHidden: true)
+        
+        case .failure:
+            updateView(user: nil, isHidden: true)
+            
+        case .success(let user):
+            updateView(user: user, isHidden: false)
+            
+        }
     }
     
 }
@@ -60,6 +89,26 @@ private extension MainView {
             nickNameLabel.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 20),
             nickNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+}
+
+// MARK: - Update
+
+private extension MainView {
+    
+    func updateView(user: UserModel.User?, isHidden: Bool) {
+        nickNameLabel.text = user?.username
+        nickNameLabel.isHidden = isHidden
+        
+
+        if let firstImageId = user?.media.data.first {
+            
+        } else {
+            
+        }
+        
+        avatarImage.isHidden = isHidden
     }
     
 }

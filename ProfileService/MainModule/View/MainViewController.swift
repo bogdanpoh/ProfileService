@@ -18,9 +18,18 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainViewModel = MainViewModel()
+        
         setupViews()
         configureConstraints()
+        
+        update()
+        mainViewModel?.fetchUser(of: 1234567788)
     }
+    
+    // MARK: - Private
+    
+    private var mainViewModel: MainViewModelProtocol?
     
 }
 
@@ -45,16 +54,16 @@ private extension MainViewController {
     
 }
 
-// MARK: - Set
+// MARK: - Private Methods
 
 private extension MainViewController {
     
-    func set(nickName: String) {
-        mainView.nickNameLabel.text = nickName
+    func update() {
+        
+        mainViewModel?.updateViewData = { [weak self] userModel in
+            self?.mainView.userModel = userModel
+        }
+        
     }
-    
-    func set(avatar: UIImage) {
-        mainView.avatarImage.image = avatar
-    }
-    
+
 }
