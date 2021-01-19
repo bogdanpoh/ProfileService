@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MainViewModelInput {
-    
+    func viewDidLoad()
     func fetchUser(of id: Int)
 }
 
@@ -22,11 +22,11 @@ typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 final class MainViewModel: MainViewModelProtocol {
 
     var updateViewData: ((UserModel) -> ())?
-    
-    init() {
+
+    func viewDidLoad() {
         updateViewData?(.initial)
     }
-    
+
     func fetchUser(of id: Int) {
         
         updateViewData?(.loading)
