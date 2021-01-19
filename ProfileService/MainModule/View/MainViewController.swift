@@ -42,6 +42,7 @@ private extension MainViewController {
             mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
 }
 
 // MARK: - Set
@@ -55,4 +56,5 @@ private extension MainViewController {
     func set(avatar: UIImage) {
         mainView.avatarImage.image = avatar
     }
+    
 }

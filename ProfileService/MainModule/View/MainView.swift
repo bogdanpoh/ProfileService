@@ -61,4 +61,5 @@ private extension MainView {
             nickNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
+    
 }
