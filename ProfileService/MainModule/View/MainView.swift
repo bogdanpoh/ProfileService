@@ -14,7 +14,6 @@ final class MainView: UIView {
     var userModel: UserModel = .initial {
         didSet {
             update()
-            setNeedsLayout()
         }
     }
     
@@ -32,6 +31,8 @@ final class MainView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,9 +80,6 @@ private extension MainView {
     func update() {
         switch userModel {
         case .initial:
-            updateView(user: nil, isHidden: true)
-            
-        case .loading:
             updateView(user: nil, isHidden: true)
         
         case .failure:

@@ -10,7 +10,6 @@ import Foundation
 enum UserModel {
     
     case initial
-    case loading
     case failure
     case success(User)
     

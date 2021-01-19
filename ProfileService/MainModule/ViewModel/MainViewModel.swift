@@ -8,12 +8,10 @@
 import Foundation
 
 protocol MainViewModelInput {
-    
     func fetchUser(of id: Int)
 }
 
 protocol MainViewModelOutput {
-    
     var updateViewData: ((UserModel) -> ())? { get set }
 }
 
@@ -28,8 +26,6 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func fetchUser(of id: Int) {
-        
-        updateViewData?(.loading)
         
         DispatchQueue.main.async { [weak self] in
             
