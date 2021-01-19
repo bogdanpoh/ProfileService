@@ -8,13 +8,13 @@
 import Foundation
 
 struct Media {
-    let id: String
-    let username: String
-    let mediaType: String
-    let caption: String
-    let mediaUrl: String
-    let permalink: String?
-    let timestamp: String
+    var id: String
+    var username: String
+    var mediaType: String
+    var caption: String
+    var mediaUrl: String
+    var permalink: String?
+    var timestamp: String
     
     enum CodingKeys: String, CodingKey {
         case id, username, caption, timestamp
