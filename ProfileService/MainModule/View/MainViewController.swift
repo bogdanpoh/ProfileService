@@ -18,18 +18,16 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainViewModel = MainViewModel()
-        
         setupViews()
         configureConstraints()
         
         update()
-        mainViewModel?.fetchUser(of: 1234567788)
+        mainViewModel.fetchUser(of: 1234567788)
     }
     
     // MARK: - Private
     
-    private var mainViewModel: MainViewModelProtocol?
+    private var mainViewModel: MainViewModelProtocol = MainViewModel()
     
 }
 
@@ -57,13 +55,9 @@ private extension MainViewController {
 // MARK: - Private Methods
 
 private extension MainViewController {
-    
     func update() {
-        
-        mainViewModel?.updateViewData = { [weak self] userModel in
+        mainViewModel.updateViewData = { [weak self] userModel in
             self?.mainView.userModel = userModel
         }
-        
     }
-
 }

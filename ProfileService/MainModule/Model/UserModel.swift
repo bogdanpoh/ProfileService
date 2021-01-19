@@ -29,11 +29,11 @@ enum UserModel {
     }
 
     struct MediaDataResponse: Decodable {
-        let data: [DataResponse]
+        var data: [DataResponse]
     }
 
     struct DataResponse: Decodable {
-        let id: String
+        var id: String
     }
     
 }

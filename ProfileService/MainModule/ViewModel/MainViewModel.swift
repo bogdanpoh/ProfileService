@@ -8,17 +8,19 @@
 import Foundation
 
 protocol MainViewModelInput {
-    var updateViewData: ((UserModel) -> ())? {get set}
+    
+    func fetchUser(of id: Int)
 }
 
 protocol MainViewModelOutput {
-    func fetchUser(of id: Int)
+    
+    var updateViewData: ((UserModel) -> ())? { get set }
 }
 
 typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 
 final class MainViewModel: MainViewModelProtocol {
-    
+
     var updateViewData: ((UserModel) -> ())?
     
     init() {
@@ -37,11 +39,7 @@ final class MainViewModel: MainViewModelProtocol {
                                                           accountType: "createor",
                                                           mediaCount: 30,
                                                           username: "bogdan.poh",
-                                                          media:
-                                                            UserModel.MediaDataResponse(data: [
-                                                                UserModel.DataResponse(id: "12123156578585"),
-                                                                UserModel.DataResponse(id: "1245236347675")
-                                                            ]))))
+                                                          media: UserModel.MediaDataResponse(data: [UserModel.DataResponse(id: "12123156578585"), UserModel.DataResponse(id: "1245236347675")]))))
             
         }
         
