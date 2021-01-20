@@ -18,8 +18,6 @@ protocol MainViewModelOutput {
 
 typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 
-// MARK: - MainViewModel
-
 final class MainViewModel {
     var updateViewData: ((UserModel) -> ())?
 }
@@ -46,7 +44,7 @@ extension MainViewModel: MainViewModelInput  {
     
 }
 
-// MARK: - MainViewOutput
+// MARK: - MainViewModelOutput
 
 extension MainViewModel: MainViewModelOutput {
     

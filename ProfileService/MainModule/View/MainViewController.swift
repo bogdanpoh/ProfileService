@@ -77,7 +77,7 @@ private extension MainViewController {
 
 }
 
-// MARK: - Delegate
+// MARK: - Themeable
 
 extension MainViewController: Themeable {
     
