@@ -12,9 +12,7 @@ final class MainView: UIView {
     // MARK: - Public
     
     var userModel: UserModel = .initial {
-        didSet {
-            update()
-        }
+        didSet { update() }
     }
     
     // MARK: - UI

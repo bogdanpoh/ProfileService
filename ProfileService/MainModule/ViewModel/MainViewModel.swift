@@ -27,13 +27,13 @@ final class MainViewModel {
 // MARK: - MainViewModelInput
 
 extension MainViewModel: MainViewModelInput {
+
     func viewDidLoad() {
         updateViewData?(.initial)
     }
 
     func fetchUser(of id: Int) {
         DispatchQueue.main.async { [weak self] in
-            
             self?.updateViewData?(.success(UserModel.User(id: "12457674",
                                                           accountType: "createor",
                                                           mediaCount: 30,
@@ -47,5 +47,6 @@ extension MainViewModel: MainViewModelInput {
 // MARK: - MainViewModelOutput
 
 extension MainViewModel: MainViewModelOutput {
+
     
 }
