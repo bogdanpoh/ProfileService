@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class MainViewController: UIViewController {
     
     // MARK: - UI
@@ -20,17 +21,28 @@ final class MainViewController: UIViewController {
         
         mainViewModel = MainViewModel()
         
+        DefaultThemeProvider.shared.register(observer: self)
+        DefaultThemeProvider.shared.setupTheme(traitCollection)
+        
+        bindToViewModel()
         setupViews()
         configureConstraints()
         
+        mainViewModel.viewDidLoad()
         mainViewModel.fetchUser(of: 1234567788)
+    }
+    
+    // MARK: - Override methods
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        DefaultThemeProvider.shared.toggleTheme()
     }
     
     // MARK: - Private
     
     private var mainViewModel: MainViewModelProtocol = MainViewModel()
-    
-    
 }
 
 // MARK: - Setup
@@ -57,11 +69,20 @@ private extension MainViewController {
 // MARK: - Private Methods
 
 private extension MainViewController {
-    
-    func update() {
+
+    func bindToViewModel() {
         mainViewModel.updateViewData = { [weak self] userModel in
             self?.mainView.userModel = userModel
         }
     }
 
+}
+
+// MARK: - Delegate
+
+extension MainViewController: Themeable {
+    func apply(theme: Theme) {
+        view.backgroundColor = theme.colors.backgroundColor
+        mainView.set(color: theme.colors.labelColor)
+    }
 }

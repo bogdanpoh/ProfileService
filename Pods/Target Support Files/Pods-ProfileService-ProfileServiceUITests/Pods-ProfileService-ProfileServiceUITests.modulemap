@@ -1,0 +1,6 @@
+module Pods_ProfileService_ProfileServiceUITests {
+  umbrella header "Pods-ProfileService-ProfileServiceUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

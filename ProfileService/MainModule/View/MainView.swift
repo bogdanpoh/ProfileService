@@ -12,9 +12,7 @@ final class MainView: UIView {
     // MARK: - Public
     
     var userModel: UserModel = .initial {
-        didSet {
-            update()
-        }
+        didSet { update() }
     }
     
     // MARK: - UI
@@ -26,7 +24,7 @@ final class MainView: UIView {
         return imageView
     }()
     
-    private let nickNameLabel: UILabel = {
+    private var nickNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -73,6 +71,15 @@ private extension MainView {
     
 }
 
+// MARK: - Set
+
+extension MainView {
+    func set(color: UIColor) {
+        nickNameLabel.textColor = color
+    }
+}
+
+
 // MARK: - Update
 
 private extension MainView {
@@ -99,3 +106,4 @@ private extension MainView {
     }
     
 }
+

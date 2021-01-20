@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MainViewModelInput {
+    func viewDidLoad()
     func fetchUser(of id: Int)
 }
 
@@ -20,16 +21,14 @@ typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 final class MainViewModel: MainViewModelProtocol {
 
     var updateViewData: ((UserModel) -> ())?
-    
-    init() {
+
+    func viewDidLoad() {
         updateViewData?(.initial)
     }
-    
+
     func fetchUser(of id: Int) {
         
         DispatchQueue.main.async { [weak self] in
-            
-            // fetched data with network service
             
             self?.updateViewData?(.success(UserModel.User(id: "12457674",
                                                           accountType: "createor",
