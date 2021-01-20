@@ -7,8 +7,7 @@
 
 import UIKit
 
-
-class DefaultThemeProvider {
+final class DefaultThemeProvider {
     static let shared = DefaultThemeProvider()
     var theme: Theme {
         didSet {
@@ -16,8 +15,6 @@ class DefaultThemeProvider {
             notifyObservers()
         }
     }
-    
-    private var observers: NSHashTable<AnyObject> = NSHashTable.weakObjects()
     
     private init() {
         self.theme = UserDefaults.standard.bool(forKey: "isDark") ? .dark : .light
@@ -28,18 +25,19 @@ class DefaultThemeProvider {
     }
     
     func setupTheme(_ traitCollection: UITraitCollection)  {
-        
         switch traitCollection.userInterfaceStyle {
         case .unspecified:
             theme = .light
+            
         case .light:
             theme = .light
+            
         case .dark:
             theme = .dark
+            
         @unknown default:
             theme = .light
         }
-        
     }
     
     func register<Observer: Themeable>(observer: Observer) {
@@ -50,8 +48,12 @@ class DefaultThemeProvider {
     private func notifyObservers() {
         DispatchQueue.main.async {
             self.observers.allObjects
-                .compactMap{ $0 as? Themeable}
-                .forEach{$0.apply(theme: self.theme)}
+                .compactMap{ $0 as? Themeable }
+                .forEach{ $0.apply(theme: self.theme) }
         }
     }
+    
+    // MARK: - Private
+    
+    private var observers: NSHashTable<AnyObject> = NSHashTable.weakObjects()
 }

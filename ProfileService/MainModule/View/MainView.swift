@@ -24,7 +24,7 @@ final class MainView: UIView {
         return imageView
     }()
     
-    private var nickNameLabel: UILabel = {
+    private let nickNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -74,9 +74,11 @@ private extension MainView {
 // MARK: - Set
 
 extension MainView {
+    
     func set(color: UIColor) {
         nickNameLabel.textColor = color
     }
+    
 }
 
 
@@ -94,7 +96,6 @@ private extension MainView {
             
         case .success(let user):
             updateView(user: user, isHidden: false)
-            
         }
     }
     

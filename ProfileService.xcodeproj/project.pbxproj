@@ -17,7 +17,6 @@
 		F70AD05425B5D1E000F2A62A /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD05325B5D1E000F2A62A /* MediaModel.swift */; };
 		F70AD14325B75A5200F2A62A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD14225B75A5200F2A62A /* Theme.swift */; };
 		F70AD15325B7619300F2A62A /* ColorPaletts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD15225B7619300F2A62A /* ColorPaletts.swift */; };
-		F70AD15B25B7624C00F2A62A /* ThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD15A25B7624C00F2A62A /* ThemeProvider.swift */; };
 		F70AD18A25B7704800F2A62A /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD18925B7704800F2A62A /* Themeable.swift */; };
 		F70AD1A025B77E3100F2A62A /* DefaultThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70AD19F25B77E3100F2A62A /* DefaultThemeProvider.swift */; };
 		F7EB599225B589B900E3F9BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB599125B589B900E3F9BA /* AppDelegate.swift */; };
@@ -65,7 +64,6 @@
 		F70AD05325B5D1E000F2A62A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		F70AD14225B75A5200F2A62A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F70AD15225B7619300F2A62A /* ColorPaletts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaletts.swift; sourceTree = "<group>"; };
-		F70AD15A25B7624C00F2A62A /* ThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProvider.swift; sourceTree = "<group>"; };
 		F70AD18925B7704800F2A62A /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
 		F70AD19F25B77E3100F2A62A /* DefaultThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultThemeProvider.swift; sourceTree = "<group>"; };
 		F7EB598E25B589B800E3F9BA /* ProfileService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileService.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,7 +178,6 @@
 				F70AD14225B75A5200F2A62A /* Theme.swift */,
 				F70AD18925B7704800F2A62A /* Themeable.swift */,
 				F70AD19F25B77E3100F2A62A /* DefaultThemeProvider.swift */,
-				F70AD15A25B7624C00F2A62A /* ThemeProvider.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -457,7 +454,6 @@
 				F70AD14325B75A5200F2A62A /* Theme.swift in Sources */,
 				F70AD04C25B5D15500F2A62A /* MainView.swift in Sources */,
 				F70AD02C25B5CE0300F2A62A /* MainViewModel.swift in Sources */,
-				F70AD15B25B7624C00F2A62A /* ThemeProvider.swift in Sources */,
 				F7EB599625B589B900E3F9BA /* MainViewController.swift in Sources */,
 				F7EB599C25B589B900E3F9BA /* ProfileService.xcdatamodeld in Sources */,
 				F70AD05425B5D1E000F2A62A /* MediaModel.swift in Sources */,

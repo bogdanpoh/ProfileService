@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 struct Theme {
     enum `Type` {
         case light

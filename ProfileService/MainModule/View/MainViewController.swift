@@ -19,8 +19,6 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainViewModel = MainViewModel()
-        
         DefaultThemeProvider.shared.register(observer: self)
         DefaultThemeProvider.shared.setupTheme(traitCollection)
         
@@ -43,6 +41,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private
     
     private var mainViewModel: MainViewModelProtocol = MainViewModel()
+    
 }
 
 // MARK: - Setup
@@ -81,6 +80,7 @@ private extension MainViewController {
 // MARK: - Delegate
 
 extension MainViewController: Themeable {
+    
     func apply(theme: Theme) {
         view.backgroundColor = theme.colors.backgroundColor
         mainView.set(color: theme.colors.labelColor)

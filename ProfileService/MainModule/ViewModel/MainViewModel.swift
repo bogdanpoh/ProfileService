@@ -18,16 +18,21 @@ protocol MainViewModelOutput {
 
 typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 
-final class MainViewModel: MainViewModelProtocol {
+// MARK: - MainViewModel
 
+final class MainViewModel {
     var updateViewData: ((UserModel) -> ())?
+}
 
+// MARK: - MainViewModelInput
+
+extension MainViewModel: MainViewModelInput  {
+    
     func viewDidLoad() {
         updateViewData?(.initial)
     }
 
     func fetchUser(of id: Int) {
-        
         DispatchQueue.main.async { [weak self] in
             
             self?.updateViewData?(.success(UserModel.User(id: "12457674",
@@ -37,7 +42,12 @@ final class MainViewModel: MainViewModelProtocol {
                                                           media: UserModel.MediaDataResponse(data: [UserModel.DataResponse(id: "12123156578585"), UserModel.DataResponse(id: "1245236347675")]))))
             
         }
-        
     }
+    
+}
+
+// MARK: - MainViewOutput
+
+extension MainViewModel: MainViewModelOutput {
     
 }
