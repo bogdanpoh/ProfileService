@@ -33,7 +33,6 @@ final class MainViewController: UIViewController {
     
     private var mainViewModel: MainViewModelProtocol = MainViewModel()
     
-    
 }
 
 // MARK: - Setup
@@ -57,7 +56,7 @@ private extension MainViewController {
     
 }
 
-// MARK: - Private Methods
+// MARK: - BindingToViewModel
 
 private extension MainViewController {
 

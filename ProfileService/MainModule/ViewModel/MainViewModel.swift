@@ -42,6 +42,7 @@ extension MainViewModel: MainViewModelInput {
             
         }
     }
+    
 }
 
 // MARK: - MainViewModelOutput

@@ -85,7 +85,6 @@ private extension MainView {
             
         case .success(let user):
             updateView(user: user, isHidden: false)
-            
         }
     }
     
