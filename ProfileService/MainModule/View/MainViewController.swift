@@ -65,7 +65,7 @@ private extension MainViewController {
     
 }
 
-// MARK: - BindingToViewModel
+// MARK: - Binding To ViewModel
 
 private extension MainViewController {
 
