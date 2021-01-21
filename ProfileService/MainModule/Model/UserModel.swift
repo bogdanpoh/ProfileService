@@ -7,25 +7,32 @@
 
 import Foundation
 
-struct User: Decodable {
-    var id: String
-    var accountType: String
-    var mediaCount: Int
-    var username: String
-    var media: MediaDataResponse
+enum UserModel {
     
-    enum CodingKeys: String, CodingKey {
-        case id, username, media
-        case accountType = "account_type"
-        case mediaCount = "media_count"
+    case initial
+    case failure
+    case success(User)
+    
+    struct User: Decodable {
+        var id: String
+        var accountType: String
+        var mediaCount: Int
+        var username: String
+        var media: MediaDataResponse
+        
+        enum CodingKeys: String, CodingKey {
+            case id, username, media
+            case accountType = "account_type"
+            case mediaCount = "media_count"
+        }
     }
-}
 
-struct MediaDataResponse: Decodable {
-    let data: [DataResponse]
-}
+    struct MediaDataResponse: Decodable {
+        var data: [DataResponse]
+    }
 
-struct DataResponse: Decodable {
-    let id: String
+    struct DataResponse: Decodable {
+        var id: String
+    }
+    
 }
-

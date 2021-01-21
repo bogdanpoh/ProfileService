@@ -20,7 +20,18 @@ final class MainViewController: UIViewController {
         
         setupViews()
         configureConstraints()
+
+        bindToViewModel()
+        setupViews()
+        configureConstraints()
+
+        mainViewModel.viewDidLoad()
+        mainViewModel.fetchUser(of: 1234567788)
     }
+    
+    // MARK: - Private
+    
+    private var mainViewModel: MainViewModelProtocol = MainViewModel()
     
 }
 
@@ -45,16 +56,14 @@ private extension MainViewController {
     
 }
 
-// MARK: - Set
+// MARK: - Binding To ViewModel
 
 private extension MainViewController {
-    
-    func set(nickName: String) {
-        mainView.nickNameLabel.text = nickName
+
+    func bindToViewModel() {
+        mainViewModel.updateViewData = { [weak self] userModel in
+            self?.mainView.userModel = userModel
+        }
     }
-    
-    func set(avatar: UIImage) {
-        mainView.avatarImage.image = avatar
-    }
-    
+
 }

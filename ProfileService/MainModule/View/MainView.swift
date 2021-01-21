@@ -9,21 +9,28 @@ import UIKit
 
 final class MainView: UIView {
     
+    // MARK: - Public
+    
+    var userModel: UserModel = .initial {
+        didSet { update() }
+    }
+    
     // MARK: - UI
     
-    let avatarImage: UIImageView = {
+    private let avatarImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "avatar")
         return imageView
     }()
     
-    let nickNameLabel: UILabel = {
+    private let nickNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Username"
         return label
     }()
+    
+    // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -60,6 +67,32 @@ private extension MainView {
             nickNameLabel.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 20),
             nickNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
+    }
+    
+}
+
+// MARK: - Update
+
+private extension MainView {
+    
+    func update() {
+        switch userModel {
+        case .initial:
+            updateView(user: nil, isHidden: true)
+        
+        case .failure:
+            updateView(user: nil, isHidden: true)
+            
+        case .success(let user):
+            updateView(user: user, isHidden: false)
+        }
+    }
+    
+    func updateView(user: UserModel.User?, isHidden: Bool) {
+        nickNameLabel.text = user?.username
+        nickNameLabel.isHidden = isHidden
+        
+        avatarImage.isHidden = isHidden
     }
     
 }
