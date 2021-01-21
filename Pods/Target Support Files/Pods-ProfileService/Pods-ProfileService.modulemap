@@ -1,0 +1,6 @@
+module Pods_ProfileService {
+  umbrella header "Pods-ProfileService-umbrella.h"
+
+  export *
+  module * { export * }
+}

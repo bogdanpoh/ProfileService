@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class MainViewController: UIViewController {
     
     // MARK: - UI
@@ -18,20 +19,28 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
-        configureConstraints()
-
+        DefaultThemeProvider.shared.register(observer: self)
+        DefaultThemeProvider.shared.setupTheme(traitCollection)
+        
         bindToViewModel()
         setupViews()
         configureConstraints()
-
+        
         mainViewModel.viewDidLoad()
         mainViewModel.fetchUser(of: 1234567788)
     }
     
+    // MARK: - Override methods
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        DefaultThemeProvider.shared.toggleTheme()
+    }
+    
     // MARK: - Private
     
-    private var mainViewModel: MainViewModelProtocol = MainViewModel()
+    private let mainViewModel: MainViewModelProtocol = MainViewModel()
     
 }
 
@@ -66,4 +75,15 @@ private extension MainViewController {
         }
     }
 
+}
+
+// MARK: - Themeable
+
+extension MainViewController: Themeable {
+    
+    func apply(theme: Theme) {
+        view.backgroundColor = theme.colors.backgroundColor
+        mainView.setNickName(color: theme.colors.labelColor)
+    }
+    
 }

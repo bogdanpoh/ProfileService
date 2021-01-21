@@ -71,6 +71,17 @@ private extension MainView {
     
 }
 
+// MARK: - Set
+
+extension MainView {
+    
+    func setNickName(color: UIColor) {
+        nickNameLabel.textColor = color
+    }
+    
+}
+
+
 // MARK: - Update
 
 private extension MainView {
@@ -96,3 +107,4 @@ private extension MainView {
     }
     
 }
+

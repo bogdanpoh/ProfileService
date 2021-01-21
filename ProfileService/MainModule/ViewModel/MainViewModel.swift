@@ -7,33 +7,32 @@
 
 import Foundation
 
-protocol MainViewModelInput {
+protocol MainViewModelInput: class {
     func viewDidLoad()
     func fetchUser(of id: Int)
 }
 
-protocol MainViewModelOutput {
+protocol MainViewModelOutput: class {
     var updateViewData: ((UserModel) -> ())? { get set }
 }
 
 typealias MainViewModelProtocol = MainViewModelInput & MainViewModelOutput
 
 final class MainViewModel {
-
     var updateViewData: ((UserModel) -> ())?
-
 }
 
 // MARK: - MainViewModelInput
 
-extension MainViewModel: MainViewModelInput {
-
+extension MainViewModel: MainViewModelInput  {
+    
     func viewDidLoad() {
         updateViewData?(.initial)
     }
 
     func fetchUser(of id: Int) {
         DispatchQueue.main.async { [weak self] in
+            
             self?.updateViewData?(.success(UserModel.User(id: "12457674",
                                                           accountType: "createor",
                                                           mediaCount: 30,
@@ -48,6 +47,5 @@ extension MainViewModel: MainViewModelInput {
 // MARK: - MainViewModelOutput
 
 extension MainViewModel: MainViewModelOutput {
-
     
 }
