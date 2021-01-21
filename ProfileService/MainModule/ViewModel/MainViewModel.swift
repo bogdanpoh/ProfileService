@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol MainViewModelInput {
+protocol MainViewModelInput: class {
     func viewDidLoad()
     func fetchUser(of id: Int)
 }
 
-protocol MainViewModelOutput {
+protocol MainViewModelOutput: class {
     var updateViewData: ((UserModel) -> ())? { get set }
 }
 

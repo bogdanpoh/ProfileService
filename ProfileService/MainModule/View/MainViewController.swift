@@ -40,7 +40,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Private
     
-    private var mainViewModel: MainViewModelProtocol = MainViewModel()
+    private let mainViewModel: MainViewModelProtocol = MainViewModel()
     
 }
 
@@ -85,4 +85,5 @@ extension MainViewController: Themeable {
         view.backgroundColor = theme.colors.backgroundColor
         mainView.setNickName(color: theme.colors.labelColor)
     }
+    
 }
