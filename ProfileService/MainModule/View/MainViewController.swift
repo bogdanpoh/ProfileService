@@ -83,6 +83,6 @@ extension MainViewController: Themeable {
     
     func apply(theme: Theme) {
         view.backgroundColor = theme.colors.backgroundColor
-        mainView.set(color: theme.colors.labelColor)
+        mainView.setNickName(color: theme.colors.labelColor)
     }
 }

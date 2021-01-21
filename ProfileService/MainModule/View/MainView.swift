@@ -75,7 +75,7 @@ private extension MainView {
 
 extension MainView {
     
-    func set(color: UIColor) {
+    func setNickName(color: UIColor) {
         nickNameLabel.textColor = color
     }
     
